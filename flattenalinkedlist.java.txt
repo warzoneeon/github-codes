@@ -1,0 +1,31 @@
+class Solution {
+    public void flatten(TreeNode root) {
+       Stack<TreeNode> s = new Stack<>();
+        flat(root,s);
+        f(root,s);
+      }
+
+ void f(TreeNode root,Stack<TreeNode> s){
+ TreeNode curr = null;
+ while(!s.isEmpty()){
+ TreeNode temp = s.pop();
+ if(curr==null){
+ curr = temp;
+ }
+else
+{ temp.left=null;
+  temp.right = curr;
+  curr = temp;
+  }
+   }
+     }
+
+  public void flat(TreeNode root,Stack<TreeNode> s){
+      if(root == null){
+        return;
+       }
+       s.push(root);
+       flat(root.left,s);
+       flat(root.right,s);
+   }
+}
