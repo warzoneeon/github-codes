@@ -1,10 +1,11 @@
 class Solution {
+//this is main function to call..
     public void flatten(TreeNode root) {
        Stack<TreeNode> s = new Stack<>();
         flat(root,s);
         f(root,s);
       }
-
+//using stack build a tree which have only right node..
  void f(TreeNode root,Stack<TreeNode> s){
  TreeNode curr = null;
  while(!s.isEmpty()){
@@ -19,7 +20,7 @@ else
   }
    }
      }
-
+//To push all the nodes in the stack
   public void flat(TreeNode root,Stack<TreeNode> s){
       if(root == null){
         return;
