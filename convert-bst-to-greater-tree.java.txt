@@ -1,3 +1,5 @@
+//This is the code to convert The Given Tree Into the Tree Which Have The sum Of All the Greater Nodes
+// (Including curr node) in a tree..
 class Solution {
     int sum=0;
     public TreeNode convertBST(TreeNode root) {
