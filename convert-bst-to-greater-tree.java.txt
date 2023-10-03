@@ -1,0 +1,39 @@
+class Solution {
+    int sum=0;
+    public TreeNode convertBST(TreeNode root) {
+         ArrayList<Integer> l = new ArrayList<>();
+         addtolist(root,l);
+         HashMap<Integer,Integer> map = new HashMap<>();
+         int k =0;
+         for(int i =0;i<l.size();i++){
+         if(i>0){
+         k += l.get(i-1);}
+         int n = sum -k;
+         map.put(l.get(i),n);
+         }
+         return change(root,map);
+    }
+    
+    TreeNode change(TreeNode root,HashMap<Integer,Integer> m){
+        if(root==null){
+            return null;
+        }
+        
+        if(m.containsKey(root.val)){
+            
+            root.val = m.get(root.val);
+        }
+        change(root.left,m);
+        change(root.right,m);
+        return root;
+    }
+    void addtolist(TreeNode root,ArrayList<Integer> l){
+        if(root==null){
+            return;
+        }
+       sum+=root.val;
+       addtolist(root.left,l);
+       l.add(root.val);
+       addtolist(root.right,l);
+    }
+}
